@@ -98,7 +98,7 @@ const myAtoi = (s: string): number => {
     if(i < n && (s[i] === "-" || s[i] === "+")){
       sign = s[i++] === "-" ? -1 : 1;
     }
-    const max = 2**31, min = -(2**31);
+    const max = 2**31 - 1, min = -(2**31);
     while(i < n && s[i] >= '0' && s[i] <= '9'){
       const d = s[i++].charCodeAt(0) - 48;
       if(res > Math.floor((max - d) / 10)){
