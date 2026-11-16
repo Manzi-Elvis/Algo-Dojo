@@ -27,4 +27,7 @@ be treated as "abcd".
 (Thanks to wthit56 for the suggestion!)
 */
 
-const autocomplete = (input, dictionary) => dictionary.filter(word => word.startsWith(input.replace(/\$0/g, ""))).slice(0,5)
+const autocomplete = (input, dictionary) => {
+  const pref = input.split("").filter(ch => ch.toLowerCase() >= "a" && ch.toLowerCase() <= "z").join("").toLowerCase();
+  return dictionary.filter(word => word.toLowerCase().startsWith(pref)).slice(0, 5);
+}
